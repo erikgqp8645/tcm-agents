@@ -92,9 +92,9 @@ Agent 之间通过 **JSON + 内嵌 Markdown** 格式传递数据：
 
 | 数据源 | 说明 | 位置 |
 |--------|------|------|
-| **TCM-Ancient-Books** | 701 本中医古籍全文 | `../TCM-Ancient-Books/` |
-| **全文搜索工具** | 关键词/正则/组合搜索 | `../TCM-Ancient-Books/tcm-search.py` |
-| **NER 数据集** | 中医命名实体识别 | `../TCM-NER-Dataset/` |
+| **TCM-Ancient-Books** | 701 本中医古籍全文 | `data/ancient-books/` |
+| **全文搜索工具** | 关键词/正则/组合搜索 | `data/ancient-books/tcm-search.py` |
+| **NER 数据集** | 中医命名实体识别 | `data/ancient-books/ner_results.json` |
 
 ## 快速开始
 
@@ -141,11 +141,13 @@ tcm-agents/
 │   │   └── SKILL.md
 │   └── tcm-case-simulator/           # v0.1.0 🔲
 │       └── SKILL.md
-└── data/                              # 共享数据（不纳入仓库）
-    ├── shanghan-lun/
-    ├── jingui-yaolue/
-    ├── huangdi-neijing/
-    └── ancient-refs/
+└── data/                              # 共享数据
+    └── ancient-books/                 # 701 本中医古籍 + 搜索脚本 + NER 模型
+        ├── *.txt                      # 古籍全文（按编号命名）
+        ├── tcm-search.py              # 全文搜索工具
+        ├── tcm_ner.py                 # NER 实体识别脚本
+        ├── ner_results.json           # NER 识别结果
+        └── tcm-ner-model/             # 预训练 NER 模型
 ```
 
 ## 贡献
